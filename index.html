@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>English Fun! 🌟</title>
+  <style>
+    /* ── Variables ── */
+    :root {
+      --or:       #FF9A56;
+      --or-l:     #FFD4B2;
+      --or-p:     #FFF4EB;
+      --bl:       #5BC4F0;
+      --bl-l:     #B8E9FF;
+      --bl-p:     #EBF8FF;
+      --gr:       #52C77A;
+      --gr-l:     #C3F0D4;
+      --gr-p:     #F0FFF6;
+      --re:       #F47070;
+      --re-l:     #FFD5D5;
+      --re-p:     #FFF5F5;
+      --yw:       #FFCD56;
+      --yw-l:     #FFF0B2;
+      --pu:       #B47FDD;
+      --pu-l:     #EDD5FF;
+      --text:     #2D3748;
+      --muted:    #8A96A8;
+      --bg:       #FAFAFA;
+      --card:     #FFFFFF;
+      --r:        14px;
+      --rl:       22px;
+      --sh:       0 4px 18px rgba(0,0,0,.07);
+      --shh:      0 8px 28px rgba(0,0,0,.13);
+    }
+
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', 'Arial Rounded MT Bold', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(130deg, #FF9A56 0%, #FFB347 45%, #5BC4F0 100%);
+      padding: 28px 24px 22px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: "⭐"; font-size: 160px; opacity: .07;
+      position: absolute; top: -30px; left: -20px; transform: rotate(-20deg);
+    }
+    header::after {
+      content: "🚀"; font-size: 140px; opacity: .07;
+      position: absolute; bottom: -30px; right: -10px; transform: rotate(15deg);
+    }
+    header h1 {
+      font-size: clamp(1.7rem, 5vw, 2.4rem);
+      font-weight: 900;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,.15);
+      letter-spacing: .5px;
+    }
+    header p { color: rgba(255,255,255,.9); margin-top: 5px; font-size: 1rem; }
+
+    /* ── Navigation ── */
+    nav {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,.07);
+      position: sticky; top: 0; z-index: 200;
+    }
+    .nav-inner {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      gap: 6px; padding: 12px 16px;
+      max-width: 900px; margin: 0 auto;
+    }
+    .nav-tab {
+      padding: 10px 22px;
+      border: 2px solid transparent;
+      border-radius: 50px;
+      font-size: .93rem; font-weight: 700;
+      cursor: pointer; transition: all .22s;
+      background: #F3F3F3; color: var(--muted);
+      font-family: inherit;
+    }
+    .nav-tab:hover:not(.active) {
+      background: var(--or-p); color: var(--or); border-color: var(--or-l);
+    }
+    .nav-tab.active {
+      background: linear-gradient(135deg, var(--or), #FFB347);
+      color: #fff; border-color: transparent;
+      box-shadow: 0 4px 14px rgba(255,154,86,.38);
+    }
+
+    /* ── Layout ── */
+    .main { max-width: 900px; margin: 0 auto; padding: 32px 18px 64px; }
+    .section { display: none; }
+    .section.active { display: block; }
+
+    /* ── Section heading ── */
+    .sec-head { margin-bottom: 22px; }
+    .sec-head h2 { font-size: 1.55rem; font-weight: 800; margin-bottom: 5px; }
+    .sec-head p  { color: var(--muted); font-size: .95rem; }
+
+    /* ── Utility ── */
+    .divider {
+      height: 2px; border-radius: 2px; margin: 24px 0;
+      background: linear-gradient(90deg, var(--or-l), var(--bl-l));
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      padding: 10px 22px; border: none; border-radius: 50px;
+      font-size: .95rem; font-weight: 700; cursor: pointer;
+      transition: all .2s; font-family: inherit; display: inline-flex;
+      align-items: center; gap: 6px; white-space: nowrap;
+    }
+    .btn-or  {
+      background: linear-gradient(135deg, var(--or), #FFB347);
+      color: #fff; box-shadow: 0 4px 12px rgba(255,154,86,.35);
+    }
+    .btn-or:hover  { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(255,154,86,.45); }
+    .btn-bl  {
+      background: linear-gradient(135deg, var(--bl), #3AB0E0);
+      color: #fff; box-shadow: 0 4px 12px rgba(91,196,240,.35);
+    }
+    .btn-bl:hover  { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(91,196,240,.45); }
+    .btn-gr  {
+      background: linear-gradient(135deg, var(--gr), #3DB065);
+      color: #fff; box-shadow: 0 4px 12px rgba(82,199,122,.35);
+    }
+    .btn-gr:hover  { transform: translateY(-2px); }
+    .btn-out {
+      background: #fff; color: var(--or);
+      border: 2px solid var(--or-l);
+    }
+    .btn-out:hover { background: var(--or-p); border-color: var(--or); }
+    .btn-sm  { padding: 7px 16px; font-size: .85rem; }
+
+    /* ── Forms ── */
+    .panel {
+      background: var(--or-p); border: 2px dashed var(--or-l);
+      border-radius: var(--rl); padding: 22px 20px; margin-bottom: 26px;
+    }
+    .panel-title {
+      font-size: 1.05rem; font-weight: 800; color: var(--or);
+      margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+    }
+    .form-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-end; }
+    .fg { flex: 1; min-width: 150px; }
+    .fg label {
+      display: block; font-size: .82rem; font-weight: 700;
+      color: var(--muted); margin-bottom: 5px;
+    }
+    .fg input, .fg textarea {
+      width: 100%; padding: 10px 14px;
+      border: 2px solid var(--or-l); border-radius: 10px;
+      font-size: 1rem; font-family: inherit; outline: none;
+      transition: border-color .2s; background: #fff;
+    }
+    .fg input:focus, .fg textarea:focus { border-color: var(--or); }
+    .fg textarea { height: 88px; resize: vertical; }
+
+    /* ── Cards controls ── */
+    .cards-ctrl {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      align-items: center; margin-bottom: 18px;
+    }
+    .card-count {
+      margin-left: auto; color: var(--muted); font-size: .88rem; font-weight: 600;
+    }
+
+    /* ── Flashcard grid ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+      gap: 14px; margin-bottom: 30px;
+    }
+    .flashcard {
+      height: 138px; cursor: pointer; perspective: 1000px; position: relative;
+    }
+    .fc-inner {
+      width: 100%; height: 100%;
+      transition: transform .55s cubic-bezier(.4,.2,.2,1);
+      transform-style: preserve-3d; position: relative;
+    }
+    .flashcard.flipped .fc-inner { transform: rotateY(180deg); }
+    .fc-front, .fc-back {
+      position: absolute; width: 100%; height: 100%;
+      backface-visibility: hidden; border-radius: var(--r);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 12px; text-align: center; box-shadow: var(--sh);
+    }
+    .fc-front {
+      background: linear-gradient(145deg, #fff, var(--bl-p));
+      border: 2px solid var(--bl-l);
+    }
+    .fc-back {
+      background: linear-gradient(145deg, #fff, var(--or-p));
+      border: 2px solid var(--or-l);
+      transform: rotateY(180deg);
+    }
+    .fc-word  { font-size: 1.12rem; font-weight: 800; }
+    .fc-hint  { font-size: .72rem; color: var(--muted); margin-top: 6px; }
+    .fc-del {
+      position: absolute; top: 6px; right: 8px; background: none; border: none;
+      font-size: .95rem; cursor: pointer; opacity: 0; transition: opacity .2s;
+      color: var(--re); z-index: 10; line-height: 1;
+    }
+    .flashcard:hover .fc-del { opacity: 1; }
+
+    /* ── Empty state ── */
+    .empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 44px 20px; color: var(--muted);
+    }
+    .empty .e-emoji { font-size: 2.8rem; margin-bottom: 10px; }
+
+    /* ── Matching game ── */
+    .match-game { display: none; }
+    .match-game.on { display: block; }
+    .match-head {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 10px; margin-bottom: 14px;
+    }
+    .match-head h3 { font-size: 1.2rem; font-weight: 800; }
+    .score-badge {
+      background: var(--bl-p); border: 2px solid var(--bl-l);
+      border-radius: 50px; padding: 5px 16px;
+      font-weight: 800; color: var(--bl);
+    }
+    .match-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .match-col-label {
+      font-size: .78rem; font-weight: 800; color: var(--muted);
+      text-transform: uppercase; letter-spacing: .8px; margin-bottom: 8px;
+    }
+    .match-item {
+      background: #fff; border: 2px solid #E4E8EE;
+      border-radius: 12px; padding: 11px 14px;
+      margin-bottom: 9px; cursor: pointer;
+      font-weight: 700; font-size: .97rem;
+      text-align: center; transition: all .18s;
+      user-select: none;
+    }
+    .match-item:hover { border-color: var(--bl); background: var(--bl-p); }
+    .match-item.sel {
+      border-color: var(--or); background: var(--or-p);
+      transform: scale(1.04);
+    }
+    .match-item.ok  {
+      border-color: var(--gr); background: var(--gr-p);
+      cursor: default; color: #1A6936;
+    }
+    .match-item.bad {
+      border-color: var(--re); background: var(--re-p);
+      animation: shake .42s ease;
+    }
+
+    /* ── Celebration ── */
+    .celebrate {
+      display: none; text-align: center; padding: 40px 20px;
+    }
+    .celebrate.on { display: block; }
+    .cel-emoji {
+      font-size: 4rem;
+      animation: bob .7s ease-in-out infinite alternate;
+    }
+    .cel-title {
+      font-size: 1.5rem; font-weight: 900;
+      color: var(--or); margin-top: 14px;
+    }
+
+    /* ── Exercises (Fill-in) ── */
+    .ex-list { display: flex; flex-direction: column; gap: 14px; }
+    .ex-card {
+      background: #fff; border-radius: var(--r);
+      padding: 20px 22px; box-shadow: var(--sh);
+      border: 2px solid transparent; transition: border-color .3s, background .3s;
+    }
+    .ex-card.ok  { border-color: var(--gr); background: var(--gr-p); }
+    .ex-card.bad { border-color: var(--re); background: var(--re-p); animation: shake .42s ease; }
+    .ex-num { font-size: .78rem; font-weight: 700; color: var(--muted); margin-bottom: 8px; }
+    .ex-sent {
+      font-size: 1.12rem; line-height: 1.9;
+      display: flex; align-items: center; flex-wrap: wrap; gap: 5px;
+    }
+    .blank {
+      border: none; border-bottom: 2.5px solid var(--or);
+      padding: 2px 8px; font-size: 1.08rem; font-family: inherit;
+      color: var(--text); outline: none; background: transparent;
+      width: 130px; text-align: center; font-weight: 800;
+      transition: border-color .2s;
+    }
+    .blank:focus  { border-bottom-color: var(--bl); }
+    .blank.ok  { border-bottom-color: var(--gr); color: #1A6936; }
+    .blank.bad { border-bottom-color: var(--re); color: #C53030; }
+    .ex-btns { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+    .ex-fb {
+      margin-top: 9px; font-size: .9rem; font-weight: 700;
+      min-height: 22px; display: none;
+    }
+    .ex-fb.ok  { display: block; color: #1A6936; }
+    .ex-fb.bad { display: block; color: #C53030; }
+
+    /* ── Tenses ── */
+    .mode-box {
+      background: var(--bl-p); border: 2px solid var(--bl-l);
+      border-radius: var(--rl); padding: 22px 20px; margin-bottom: 26px;
+    }
+    .mode-box h3 { font-size: 1.05rem; font-weight: 800; color: var(--bl); margin-bottom: 14px; }
+    .chips { display: flex; gap: 9px; flex-wrap: wrap; margin-bottom: 18px; }
+    .chip {
+      display: flex; align-items: center; gap: 7px;
+      background: #fff; border: 2px solid var(--bl-l);
+      border-radius: 50px; padding: 8px 18px;
+      cursor: pointer; transition: all .2s;
+      user-select: none; font-weight: 700; font-size: .9rem;
+    }
+    .chip input { display: none; }
+    .chip.on { background: var(--bl); border-color: var(--bl); color: #fff; }
+    .chip:hover:not(.on) { border-color: var(--bl); background: var(--bl-p); }
+
+    .t-stats {
+      display: flex; gap: 16px; align-items: center;
+      flex-wrap: wrap; margin-bottom: 14px;
+    }
+    .t-stat { display: flex; align-items: center; gap: 6px; font-size: .9rem; font-weight: 700; }
+    .t-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+    .prog-wrap {
+      background: #EBEBEB; border-radius: 50px; height: 9px;
+      margin-bottom: 20px; overflow: hidden;
+    }
+    .prog-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--or), var(--bl));
+      border-radius: 50px; transition: width .4s ease; width: 0%;
+    }
+
+    .t-card {
+      background: #fff; border-radius: var(--rl);
+      padding: 26px 28px; box-shadow: var(--sh);
+      border: 2px solid transparent;
+    }
+    .t-badge {
+      display: inline-block; padding: 4px 14px; border-radius: 50px;
+      font-size: .8rem; font-weight: 800; margin-bottom: 14px;
+    }
+    .b-ps   { background: var(--yw-l); color: #7A5700; }
+    .b-pc   { background: var(--gr-l);  color: #1A6936; }
+    .b-pst  { background: var(--re-l);  color: #9B2335; }
+    .b-pstc { background: var(--pu-l);  color: #6533A0; }
+
+    .t-sent {
+      font-size: 1.28rem; font-weight: 700; line-height: 2;
+      margin-bottom: 6px;
+    }
+    .t-blank-span {
+      display: inline-block;
+      border-bottom: 2.5px solid var(--or);
+      padding: 0 10px; color: var(--or);
+      min-width: 80px; text-align: center;
+    }
+    .t-hint { font-size: .88rem; color: var(--muted); margin-bottom: 18px; }
+    .t-hint strong { color: var(--or); }
+    .t-inp {
+      padding: 10px 16px; border: 2px solid var(--bl-l);
+      border-radius: 11px; font-size: 1.05rem; font-family: inherit;
+      outline: none; width: min(240px, 100%); transition: border-color .2s;
+    }
+    .t-inp:focus { border-color: var(--bl); }
+    .t-inp.ok  { border-color: var(--gr); background: var(--gr-p); }
+    .t-inp.bad { border-color: var(--re); background: var(--re-p); }
+    .t-ctrls { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+    .t-fb {
+      margin-top: 12px; font-size: 1rem; font-weight: 800; min-height: 24px;
+    }
+    .t-fb.ok  { color: #1A6936; }
+    .t-fb.bad { color: #C53030; }
+
+    /* ── Keyframes ── */
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%       { transform: translateX(-7px); }
+      60%       { transform: translateX(7px); }
+    }
+    @keyframes pop {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    @keyframes bob {
+      from { transform: translateY(0); }
+      to   { transform: translateY(-14px); }
+    }
+    .pop { animation: pop .3s ease; }
+
+    /* ── Responsive ── */
+    @media (max-width: 580px) {
+      .match-cols { grid-template-columns: 1fr; }
+      .cards-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+      .t-card { padding: 18px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════ HEADER ════════════ -->
+<header>
+  <h1>🌟 English Fun!</h1>
+  <p>Учим английский весело и легко! 🚀</p>
+</header>
+
+<!-- ════════════ NAV ════════════ -->
+<nav>
+  <div class="nav-inner">
+    <button class="nav-tab active" onclick="showSec('flashcards', this)">🃏 Карточки слов</button>
+    <button class="nav-tab"        onclick="showSec('sentences',  this)">✏️ Предложения</button>
+    <button class="nav-tab"        onclick="showSec('tenses',     this)">⏰ Времена</button>
+  </div>
+</nav>
+
+<!-- ════════════ MAIN ════════════ -->
+<div class="main">
+
+  <!-- ══════ SECTION 1 · FLASHCARDS ══════ -->
+  <div class="section active" id="sec-flashcards">
+    <div class="sec-head">
+      <h2>🃏 Карточки слов</h2>
+      <p>Кликни на карточку — увидишь перевод! Добавляй свои слова.</p>
+    </div>
+
+    <!-- Add panel -->
+    <div class="panel">
+      <div class="panel-title">➕ Добавить карточки</div>
+
+      <!-- Single add -->
+      <div class="form-row" style="margin-bottom:16px">
+        <div class="fg">
+          <label>🇬🇧 Слово (English)</label>
+          <input id="inp-en" type="text" placeholder="например: apple"
+                 onkeydown="if(event.key==='Enter')addCard()" />
+        </div>
+        <div class="fg">
+          <label>🇷🇺 Перевод</label>
+          <input id="inp-ru" type="text" placeholder="например: яблоко"
+                 onkeydown="if(event.key==='Enter')addCard()" />
+        </div>
+        <button class="btn btn-or" onclick="addCard()">＋ Добавить</button>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Bulk import -->
+      <div class="fg" style="margin-bottom:12px">
+        <label>📋 Вставить список (формат: слово = перевод, каждая пара на новой строке)</label>
+        <textarea id="inp-bulk" placeholder="cat = кошка&#10;dog = собака&#10;book = книга&#10;run = бежать"></textarea>
+      </div>
+      <button class="btn btn-bl" onclick="importBulk()">📥 Загрузить список</button>
+    </div>
+
+    <!-- Controls -->
+    <div class="cards-ctrl">
+      <button class="btn btn-out" onclick="flipAll()">🔄 Перевернуть все</button>
+      <button class="btn btn-gr"  onclick="startMatch()">🎮 Соедини пары!</button>
+      <span class="card-count" id="card-count"></span>
+    </div>
+
+    <!-- Grid -->
+    <div class="cards-grid" id="cards-grid"></div>
+
+    <!-- ── Matching game ── -->
+    <div class="match-game" id="match-game">
+      <div class="divider"></div>
+      <div class="match-head">
+        <h3>🎮 Соедини пары!</h3>
+        <div class="score-badge" id="match-score">✅ 0 / 0</div>
+        <button class="btn btn-out btn-sm" onclick="stopMatch()">✖ Закрыть</button>
+      </div>
+      <p style="color:var(--muted);margin-bottom:14px;font-size:.93rem">
+        Кликни на слово слева, потом найди его перевод справа!
+      </p>
+      <div class="match-cols">
+        <div>
+          <div class="match-col-label">🇬🇧 English</div>
+          <div id="match-left"></div>
+        </div>
+        <div>
+          <div class="match-col-label">🇷🇺 Русский</div>
+          <div id="match-right"></div>
+        </div>
+      </div>
+      <div class="celebrate" id="match-cel">
+        <div class="cel-emoji">🎉</div>
+        <div class="cel-title">Все пары найдены! Молодец!</div>
+        <button class="btn btn-or" style="margin-top:16px" onclick="startMatch()">🔄 Ещё раз!</button>
+      </div>
+    </div>
+  </div><!-- /flashcards -->
+
+  <!-- ══════ SECTION 2 · SENTENCES ══════ -->
+  <div class="section" id="sec-sentences">
+    <div class="sec-head">
+      <h2>✏️ Вставь пропущенное слово</h2>
+      <p>Прочитай предложение и впиши правильное слово в пропуск!</p>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px">
+      <button class="btn btn-or" onclick="checkAll()">✔ Проверить всё</button>
+      <button class="btn btn-out" onclick="resetEx()">🔄 Начать заново</button>
+    </div>
+    <div class="ex-list" id="ex-list"></div>
+  </div>
+
+  <!-- ══════ SECTION 3 · TENSES ══════ -->
+  <div class="section" id="sec-tenses">
+    <div class="sec-head">
+      <h2>⏰ Тренажёр времён</h2>
+      <p>Выбери, какие времена хочешь тренировать, и вставляй правильную форму глагола!</p>
+    </div>
+
+    <!-- Mode selector -->
+    <div class="mode-box">
+      <h3>📚 Выбери времена:</h3>
+      <div class="chips">
+        <label class="chip on" id="chip-ps">
+          <input type="checkbox" value="ps" checked onchange="toggleChip(this)">
+          🟡 Present Simple
+        </label>
+        <label class="chip" id="chip-pc">
+          <input type="checkbox" value="pc" onchange="toggleChip(this)">
+          🟢 Present Continuous
+        </label>
+        <label class="chip" id="chip-pst">
+          <input type="checkbox" value="pst" onchange="toggleChip(this)">
+          🔴 Past Simple
+        </label>
+        <label class="chip" id="chip-pstc">
+          <input type="checkbox" value="pstc" onchange="toggleChip(this)">
+          🟣 Past Continuous
+        </label>
+      </div>
+      <button class="btn btn-bl" onclick="startTenses()">🚀 Начать тренировку</button>
+    </div>
+
+    <!-- Progress & stats -->
+    <div class="t-stats" id="t-stats" style="display:none">
+      <div class="t-stat">
+        <div class="t-dot" style="background:var(--gr)"></div>
+        Правильно: <strong id="t-ok">0</strong>
+      </div>
+      <div class="t-stat">
+        <div class="t-dot" style="background:var(--re)"></div>
+        Ошибки: <strong id="t-bad">0</strong>
+      </div>
+      <div class="t-stat" style="margin-left:auto;color:var(--muted)">
+        Задание <strong id="t-cur">1</strong> из <strong id="t-tot">10</strong>
+      </div>
+    </div>
+    <div class="prog-wrap" id="t-prog" style="display:none">
+      <div class="prog-bar" id="t-bar"></div>
+    </div>
+
+    <!-- Exercise card -->
+    <div class="t-card" id="t-card" style="display:none">
+      <div class="t-badge" id="t-badge"></div>
+      <div class="t-sent"  id="t-sent"></div>
+      <div class="t-hint"  id="t-hint"></div>
+      <input class="t-inp" id="t-inp" type="text" placeholder="Впиши форму глагола…"
+             onkeydown="if(event.key==='Enter')checkTense()" />
+      <div class="t-ctrls">
+        <button class="btn btn-or" onclick="checkTense()">✔ Проверить</button>
+        <button class="btn btn-out" onclick="skipTense()">→ Пропустить</button>
+      </div>
+      <div class="t-fb" id="t-fb"></div>
+    </div>
+
+    <!-- Celebration -->
+    <div class="celebrate" id="t-cel">
+      <div class="cel-emoji">🏆</div>
+      <div class="cel-title">Тренировка завершена!</div>
+      <p id="t-result" style="color:var(--muted);margin-top:8px;font-size:1rem"></p>
+      <button class="btn btn-or" style="margin-top:18px" onclick="startTenses()">🔄 Ещё раз!</button>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<script>
+/* ══════════════════════════════════════════
+   DATA
+══════════════════════════════════════════ */
+let cards = [
+  {en:'cat',    ru:'кошка'},
+  {en:'dog',    ru:'собака'},
+  {en:'book',   ru:'книга'},
+  {en:'school', ru:'школа'},
+  {en:'apple',  ru:'яблоко'},
+  {en:'friend', ru:'друг / подруга'},
+  {en:'house',  ru:'дом'},
+  {en:'tree',   ru:'дерево'},
+  {en:'run',    ru:'бежать'},
+  {en:'happy',  ru:'счастливый'},
+  {en:'red',    ru:'красный'},
+  {en:'big',    ru:'большой'},
+  {en:'sun',    ru:'солнце'},
+  {en:'water',  ru:'вода'},
+  {en:'play',   ru:'играть'},
+];
+
+const EXERCISES = [
+  {pre:'I have a',       blank:'cat',    suf:'at home. It is so fluffy! 🐱'},
+  {pre:'My favourite colour is', blank:'red', suf:'. I love it! ❤️'},
+  {pre:'We go to',       blank:'school', suf:'every day to learn new things. 📚'},
+  {pre:'She is my best', blank:'friend', suf:'. We play together every day! 🤝'},
+  {pre:'The',            blank:'tree',   suf:'in our garden is very tall and green. 🌳'},
+  {pre:'I can',          blank:'run',    suf:'very fast! I love sports! 🏃'},
+  {pre:'I feel very',    blank:'happy',  suf:'today because the sun is shining! ☀️'},
+  {pre:'My',             blank:'house',  suf:'is near the park. It is big and cosy. 🏠'},
+  {pre:'She gave me an', blank:'apple',  suf:'for lunch. It was delicious! 🍎'},
+  {pre:'This',           blank:'book',   suf:'is about animals. I love reading! 📖'},
+  {pre:'Look at the',    blank:'sun',    suf:'! It is so bright and warm today! ☀️'},
+  {pre:'Please give me some', blank:'water', suf:'. I am very thirsty! 💧'},
+];
+
+const TENSES = {
+  ps: {
+    badge:'🟡 Present Simple', cls:'b-ps',
+    info:'Present Simple — действие происходит регулярно, всегда, обычно.',
+    qs:[
+      {t:'I ___ (play) football every day.',            a:'play',   h:'💡 <strong>Every day</strong> → Present Simple'},
+      {t:'She ___ (go) to school every morning.',       a:'goes',   h:'💡 <strong>Every morning</strong> → Present Simple. She/He/It → ставим <strong>-s/-es</strong>!'},
+      {t:'They ___ (like) ice cream very much.',        a:'like',   h:'💡 Present Simple. They → без <strong>-s</strong>'},
+      {t:'He ___ (read) books every evening.',          a:'reads',  h:'💡 <strong>Every evening</strong> → Present Simple. He → ставим <strong>-s</strong>!'},
+      {t:'We ___ (live) near the school.',              a:'live',   h:'💡 Present Simple. We → без <strong>-s</strong>'},
+      {t:'My cat ___ (sleep) on the sofa always.',      a:'sleeps', h:'💡 <strong>Always</strong> → Present Simple. My cat (=it) → ставим <strong>-s</strong>!'},
+      {t:'She usually ___ (walk) to school.',           a:'walks',  h:'💡 <strong>Usually</strong> → Present Simple. She → ставим <strong>-s</strong>!'},
+      {t:'I never ___ (eat) onions.',                   a:'eat',    h:'💡 <strong>Never</strong> → Present Simple. I → без <strong>-s</strong>'},
+    ]
+  },
+  pc: {
+    badge:'🟢 Present Continuous', cls:'b-pc',
+    info:'Present Continuous — действие происходит ПРЯМО СЕЙЧАС.',
+    qs:[
+      {t:'Look! The cat ___ (sit) on the table right now.', a:'is sitting',   h:'💡 <strong>Look! / Right now</strong> → Present Continuous. The cat → <strong>is + глагол-ing</strong>'},
+      {t:'I ___ (eat) breakfast at the moment.',            a:'am eating',    h:'💡 <strong>At the moment</strong> → Present Continuous. I → <strong>am + глагол-ing</strong>'},
+      {t:'They ___ (play) in the garden right now.',        a:'are playing',  h:'💡 <strong>Right now</strong> → Present Continuous. They → <strong>are + глагол-ing</strong>'},
+      {t:"Listen! She ___ (sing) a song.",                  a:'is singing',   h:'💡 <strong>Listen!</strong> → Present Continuous. She → <strong>is + глагол-ing</strong>'},
+      {t:'We ___ (watch) a movie now.',                     a:'are watching', h:'💡 <strong>Now</strong> → Present Continuous. We → <strong>are + глагол-ing</strong>'},
+      {t:'He ___ (draw) a picture at the moment.',          a:'is drawing',   h:'💡 <strong>At the moment</strong> → Present Continuous. He → <strong>is + глагол-ing</strong>'},
+      {t:'Look! The birds ___ (fly) in the sky!',           a:'are flying',   h:'💡 <strong>Look!</strong> → Present Continuous. The birds → <strong>are + глагол-ing</strong>'},
+    ]
+  },
+  pst: {
+    badge:'🔴 Past Simple', cls:'b-pst',
+    info:'Past Simple — действие закончилось в прошлом.',
+    qs:[
+      {t:'I ___ (watch) a film yesterday.',             a:'watched', h:'💡 <strong>Yesterday</strong> → Past Simple. watch → <strong>watched</strong> (правильный → +ed)'},
+      {t:'She ___ (go) to the park last Sunday.',       a:'went',    h:'💡 <strong>Last Sunday</strong> → Past Simple. go → <strong>went</strong> (неправильный глагол!)'},
+      {t:'We ___ (eat) pizza two days ago.',            a:'ate',     h:'💡 <strong>Two days ago</strong> → Past Simple. eat → <strong>ate</strong> (неправильный глагол!)'},
+      {t:'He ___ (play) football last week.',           a:'played',  h:'💡 <strong>Last week</strong> → Past Simple. play → <strong>played</strong> (правильный → +ed)'},
+      {t:'They ___ (see) a big dog yesterday.',         a:'saw',     h:'💡 <strong>Yesterday</strong> → Past Simple. see → <strong>saw</strong> (неправильный глагол!)'},
+      {t:'I ___ (visit) my grandma last weekend.',      a:'visited', h:'💡 <strong>Last weekend</strong> → Past Simple. visit → <strong>visited</strong> (правильный → +ed)'},
+      {t:'She ___ (run) in the park yesterday morning.',a:'ran',     h:'💡 <strong>Yesterday</strong> → Past Simple. run → <strong>ran</strong> (неправильный глагол!)'},
+    ]
+  },
+  pstc: {
+    badge:'🟣 Past Continuous', cls:'b-pstc',
+    info:'Past Continuous — действие было в процессе в определённый момент прошлого.',
+    qs:[
+      {t:'I ___ (sleep) when you called.',                      a:'was sleeping',  h:'💡 <strong>When</strong> + Past Simple → длинное действие = Past Continuous. I → <strong>was + глагол-ing</strong>'},
+      {t:'They ___ (play) football when it started to rain.',   a:'were playing',  h:'💡 <strong>When it started</strong> → длинное действие = Past Continuous. They → <strong>were + глагол-ing</strong>'},
+      {t:'She ___ (read) a book while I was cooking.',          a:'was reading',   h:'💡 <strong>While</strong> → оба действия одновременно. She → <strong>was + глагол-ing</strong>'},
+      {t:"We ___ (watch) TV at 7 o'clock yesterday.",          a:'were watching', h:'💡 <strong>At 7 o\'clock yesterday</strong> → действие в процессе в прошлом. We → <strong>were + глагол-ing</strong>'},
+      {t:'He ___ (run) in the park at noon.',                   a:'was running',   h:'💡 Past Continuous: in process. He → <strong>was + глагол-ing</strong>. run → r+r → <strong>running</strong>!'},
+      {t:'I ___ (do) my homework when mum came home.',          a:'was doing',     h:'💡 <strong>When mum came</strong> → длинное действие в прошлом = Past Continuous. I → <strong>was + глагол-ing</strong>'},
+    ]
+  }
+};
+
+/* ══════════════════════════════════════════
+   NAVIGATION
+══════════════════════════════════════════ */
+function showSec(name, btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('sec-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+
+/* ══════════════════════════════════════════
+   FLASHCARDS — render
+══════════════════════════════════════════ */
+function renderCards(){
+  const g = document.getElementById('cards-grid');
+  document.getElementById('card-count').textContent = `Карточек: ${cards.length}`;
+  if(!cards.length){
+    g.innerHTML = `<div class="empty"><div class="e-emoji">📭</div><p>Карточек пока нет. Добавь первые слова!</p></div>`;
+    return;
+  }
+  g.innerHTML = cards.map((c,i)=>`
+    <div class="flashcard" id="fc${i}" onclick="flipCard(${i})">
+      <button class="fc-del" onclick="event.stopPropagation();delCard(${i})" title="Удалить">🗑</button>
+      <div class="fc-inner">
+        <div class="fc-front">
+          <div class="fc-word">${escH(c.en)}</div>
+          <div class="fc-hint">👆 кликни — перевод</div>
+        </div>
+        <div class="fc-back">
+          <div class="fc-word">${escH(c.ru)}</div>
+          <div class="fc-hint">🇬🇧 ${escH(c.en)}</div>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function flipCard(i){ document.getElementById('fc'+i).classList.toggle('flipped'); }
+
+function flipAll(){
+  const all=[...document.querySelectorAll('.flashcard')];
+  const any=all.some(c=>c.classList.contains('flipped'));
+  all.forEach(c=>any?c.classList.remove('flipped'):c.classList.add('flipped'));
+}
+
+function delCard(i){
+  cards.splice(i,1);
+  renderCards();
+  if(matchOn) stopMatch();
+}
+
+function addCard(){
+  const en=document.getElementById('inp-en').value.trim();
+  const ru=document.getElementById('inp-ru').value.trim();
+  if(!en||!ru){showToast('Заполни оба поля! 😊');return;}
+  cards.push({en,ru});
+  document.getElementById('inp-en').value='';
+  document.getElementById('inp-ru').value='';
+  document.getElementById('inp-en').focus();
+  renderCards();
+}
+
+function importBulk(){
+  const txt=document.getElementById('inp-bulk').value.trim();
+  if(!txt){showToast('Вставь список слов! 📋');return;}
+  let added=0;
+  txt.split('\n').forEach(line=>{
+    line=line.trim(); if(!line) return;
+    let sep='=';
+    if(!line.includes('=')&&line.includes('\t')) sep='\t';
+    else if(!line.includes('=')&&line.includes(' - ')) sep=' - ';
+    else if(!line.includes('=')&&line.includes(':')) sep=':';
+    const parts=line.split(sep);
+    if(parts.length>=2){
+      const en=parts[0].trim(), ru=parts.slice(1).join(sep).trim();
+      if(en&&ru){cards.push({en,ru});added++;}
+    }
+  });
+  document.getElementById('inp-bulk').value='';
+  renderCards();
+  showToast(added?`✅ Добавлено ${added} карточек!`:'⚠️ Не удалось разобрать. Используй: слово = перевод');
+}
+
+/* ══════════════════════════════════════════
+   MATCHING GAME
+══════════════════════════════════════════ */
+let matchOn=false, selL=null, selR=null, mScore=0, mTotal=0;
+
+function startMatch(){
+  if(cards.length<2){showToast('Добавь хотя бы 2 карточки! 😊');return;}
+  matchOn=true; mScore=0; selL=null; selR=null;
+  document.getElementById('match-cel').classList.remove('on');
+
+  const pool=[...cards].sort(()=>Math.random()-.5).slice(0,8);
+  mTotal=pool.length;
+  document.getElementById('match-score').textContent=`✅ 0 / ${mTotal}`;
+
+  const lArr=[...pool].sort(()=>Math.random()-.5);
+  const rArr=[...pool].sort(()=>Math.random()-.5);
+
+  document.getElementById('match-left').innerHTML =lArr.map(p=>`
+    <div class="match-item" id="ml-${p.en}" data-en="${escAtt(p.en)}" data-side="L" onclick="pickMatch(this)">${escH(p.en)}</div>`).join('');
+  document.getElementById('match-right').innerHTML=rArr.map(p=>`
+    <div class="match-item" id="mr-${p.en}" data-en="${escAtt(p.en)}" data-side="R" onclick="pickMatch(this)">${escH(p.ru)}</div>`).join('');
+
+  document.getElementById('match-game').classList.add('on');
+  document.getElementById('match-game').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function stopMatch(){
+  matchOn=false;
+  document.getElementById('match-game').classList.remove('on');
+}
+
+function pickMatch(el){
+  if(el.classList.contains('ok')||el.classList.contains('bad')) return;
+  const side=el.dataset.side;
+  if(side==='L'){
+    document.querySelectorAll('#match-left .sel').forEach(e=>e.classList.remove('sel'));
+    el.classList.add('sel');
+    selL=el.dataset.en;
+  } else {
+    document.querySelectorAll('#match-right .sel').forEach(e=>e.classList.remove('sel'));
+    el.classList.add('sel');
+    selR=el.dataset.en;
+  }
+  if(selL!==null && selR!==null) evalMatch();
+}
+
+function evalMatch(){
+  const lEl=document.getElementById('ml-'+selL);
+  const rEl=document.getElementById('mr-'+selR);
+  if(selL===selR){
+    lEl.classList.remove('sel'); lEl.classList.add('ok','pop'); lEl.onclick=null;
+    rEl.classList.remove('sel'); rEl.classList.add('ok','pop'); rEl.onclick=null;
+    mScore++;
+    document.getElementById('match-score').textContent=`✅ ${mScore} / ${mTotal}`;
+    if(mScore===mTotal) setTimeout(()=>document.getElementById('match-cel').classList.add('on'),400);
+  } else {
+    lEl.classList.add('bad'); rEl.classList.add('bad');
+    setTimeout(()=>{
+      lEl.classList.remove('bad','sel');
+      rEl.classList.remove('bad','sel');
+    },700);
+  }
+  selL=null; selR=null;
+}
+
+/* ══════════════════════════════════════════
+   FILL-IN-THE-BLANK
+══════════════════════════════════════════ */
+function renderEx(){
+  document.getElementById('ex-list').innerHTML=EXERCISES.map((ex,i)=>`
+    <div class="ex-card" id="exc${i}">
+      <div class="ex-num">Упражнение ${i+1}</div>
+      <div class="ex-sent">
+        <span>${escH(ex.pre)}</span>
+        <input class="blank" id="exb${i}" type="text" placeholder="???"
+               autocomplete="off" spellcheck="false"
+               onkeydown="if(event.key==='Enter')checkOne(${i})" />
+        <span>${escH(ex.suf)}</span>
+      </div>
+      <div class="ex-btns">
+        <button class="btn btn-or btn-sm" onclick="checkOne(${i})">✔ Проверить</button>
+        <button class="btn btn-out btn-sm" onclick="giveHint(${i})">💡 Подсказка</button>
+      </div>
+      <div class="ex-fb" id="exf${i}"></div>
+    </div>`).join('');
+}
+
+function checkOne(i){
+  const inp=document.getElementById('exb'+i);
+  const card=document.getElementById('exc'+i);
+  const fb=document.getElementById('exf'+i);
+  const ans=inp.value.trim().toLowerCase();
+  const cor=EXERCISES[i].blank.toLowerCase();
+  fb.className='ex-fb'; card.className='ex-card'; inp.className='blank';
+  if(ans===cor){
+    card.classList.add('ok'); inp.classList.add('ok');
+    fb.classList.add('ok'); fb.textContent='🎉 Правильно! Отлично!';
+  } else {
+    card.classList.add('bad'); inp.classList.add('bad');
+    fb.classList.add('bad'); fb.textContent='❌ Попробуй ещё раз!';
+  }
+}
+
+function giveHint(i){
+  const w=EXERCISES[i].blank;
+  const fb=document.getElementById('exf'+i);
+  fb.className='ex-fb ok';
+  fb.textContent=`💡 Первая буква: "${w[0].toUpperCase()}", букв в слове: ${w.length}`;
+}
+
+function checkAll(){ EXERCISES.forEach((_,i)=>checkOne(i)); }
+
+function resetEx(){
+  EXERCISES.forEach((_,i)=>{
+    document.getElementById('exb'+i).value='';
+    document.getElementById('exb'+i).className='blank';
+    document.getElementById('exc'+i).className='ex-card';
+    const fb=document.getElementById('exf'+i);
+    fb.className='ex-fb'; fb.textContent='';
+  });
+}
+
+/* ══════════════════════════════════════════
+   TENSES TRAINER
+══════════════════════════════════════════ */
+let tQueue=[], tIdx=0, tOk=0, tBad=0, tAnswered=false;
+
+function toggleChip(cb){
+  cb.closest('.chip').classList.toggle('on', cb.checked);
+}
+
+function startTenses(){
+  const sel=[...document.querySelectorAll('.chip input:checked')].map(c=>c.value);
+  if(!sel.length){showToast('Выбери хотя бы одно время! 😊');return;}
+
+  let pool=[];
+  sel.forEach(k=>pool=pool.concat(TENSES[k].qs.map(q=>({...q,tense:k}))));
+  pool=pool.sort(()=>Math.random()-.5);
+  tQueue=Array.from({length:10},(_,i)=>pool[i%pool.length]);
+  tIdx=0; tOk=0; tBad=0; tAnswered=false;
+
+  ['t-stats','t-prog'].forEach(id=>document.getElementById(id).style.display='flex');
+  document.getElementById('t-prog').style.display='block';
+  document.getElementById('t-card').style.display='block';
+  document.getElementById('t-cel').classList.remove('on');
+  updateTStats();
+  showTQ();
+}
+
+function showTQ(){
+  if(tIdx>=tQueue.length){endTenses();return;}
+  const q=tQueue[tIdx];
+  tAnswered=false;
+
+  const sentHtml=q.t.replace('___',`<span class="t-blank-span">___</span>`);
+  document.getElementById('t-sent').innerHTML=sentHtml;
+  document.getElementById('t-hint').innerHTML=q.h;
+
+  const bd=TENSES[q.tense];
+  const badgeEl=document.getElementById('t-badge');
+  badgeEl.textContent=bd.badge; badgeEl.className='t-badge '+bd.cls;
+
+  const inp=document.getElementById('t-inp');
+  inp.value=''; inp.className='t-inp'; inp.disabled=false;
+  document.getElementById('t-fb').textContent='';
+  document.getElementById('t-fb').className='t-fb';
+  setTimeout(()=>inp.focus(),50);
+}
+
+function checkTense(){
+  if(tAnswered){skipTense();return;}
+  const inp=document.getElementById('t-inp');
+  const ans=inp.value.trim().toLowerCase();
+  const cor=tQueue[tIdx].a.toLowerCase();
+  const fb=document.getElementById('t-fb');
+  tAnswered=true; inp.disabled=true;
+  if(ans===cor){
+    tOk++; inp.classList.add('ok');
+    fb.className='t-fb ok';
+    fb.innerHTML=`🎉 Правильно! <em>${tQueue[tIdx].a}</em>`;
+  } else {
+    tBad++; inp.classList.add('bad');
+    fb.className='t-fb bad';
+    fb.innerHTML=`❌ Правильный ответ: <strong>${tQueue[tIdx].a}</strong>`;
+  }
+  tIdx++;
+  updateTStats();
+}
+
+function skipTense(){
+  if(!tAnswered){tBad++;tIdx++;updateTStats();}
+  tAnswered=false;
+  if(tIdx>=tQueue.length){endTenses();return;}
+  showTQ();
+}
+
+function updateTStats(){
+  document.getElementById('t-ok').textContent=tOk;
+  document.getElementById('t-bad').textContent=tBad;
+  document.getElementById('t-cur').textContent=Math.min(tIdx+1,tQueue.length);
+  document.getElementById('t-tot').textContent=tQueue.length;
+  document.getElementById('t-bar').style.width=(tIdx/tQueue.length*100)+'%';
+}
+
+function endTenses(){
+  document.getElementById('t-card').style.display='none';
+  const cel=document.getElementById('t-cel');
+  cel.classList.add('on');
+  const pct=Math.round(tOk/tQueue.length*100);
+  const emoji=pct>=80?'🏆 Отлично!':pct>=50?'👍 Хорошо!':'💪 Продолжай — у тебя получится!';
+  document.getElementById('t-result').textContent=`Правильно: ${tOk} из ${tQueue.length} (${pct}%) — ${emoji}`;
+}
+
+/* ══════════════════════════════════════════
+   HELPERS
+══════════════════════════════════════════ */
+function escH(s){ const d=document.createElement('div');d.textContent=s;return d.innerHTML; }
+function escAtt(s){ return s.replace(/"/g,'&quot;'); }
+
+/* ── Toast notification ── */
+function showToast(msg){
+  let t=document.getElementById('_toast');
+  if(!t){
+    t=document.createElement('div');
+    t.id='_toast';
+    Object.assign(t.style,{
+      position:'fixed',bottom:'24px',left:'50%',transform:'translateX(-50%) translateY(60px)',
+      background:'#333',color:'#fff',padding:'11px 22px',borderRadius:'50px',
+      fontWeight:'700',fontSize:'.95rem',zIndex:'9999',
+      transition:'transform .3s, opacity .3s',opacity:'0',pointerEvents:'none',
+      fontFamily:'inherit',boxShadow:'0 4px 16px rgba(0,0,0,.25)',
+    });
+    document.body.appendChild(t);
+  }
+  t.textContent=msg;
+  t.style.transform='translateX(-50%) translateY(0)';
+  t.style.opacity='1';
+  clearTimeout(t._timer);
+  t._timer=setTimeout(()=>{
+    t.style.transform='translateX(-50%) translateY(60px)';
+    t.style.opacity='0';
+  },2200);
+}
+
+/* ══════════════════════════════════════════
+   INIT
+══════════════════════════════════════════ */
+renderCards();
+renderEx();
+</script>
+</body>
+</html>
